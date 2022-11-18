@@ -1,1 +1,23 @@
 # workshop-refactoring
+
+- 販売する商品の情報を更新する機能である
+  - 在庫にある1商品(item)毎に商品名、販売終了までの残日数(availableDays)、価値を示す値(quality)を持つ
+    - quality は 0 以上 50 以下の範囲内となる
+- この機能は毎日営業終了後に実行される
+  - availableDays が1減る
+  - 商品が「ビンテージワイン」の場合
+    - quality は1増える
+  - 商品が「サッカー観戦チケット」の場合
+    - availableDays が10日以内の場合
+      - quality は2増える
+    - availableDays が5日以内の場合
+      - quality は3増える
+    - availableDays がない（0日以下）の場合
+      - quality は0になる
+  - 商品が「ルビーの指輪」の場合
+    - quality は変化しない
+  - 商品が上記以外の場合
+    - availableDays がある（1日以上）の場合
+      - quality は1減る
+    - availableDays がない（0日以下）の場合
+      - quality は2減る
